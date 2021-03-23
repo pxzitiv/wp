@@ -8,3 +8,16 @@ def form():
         return render_template('form.html')
     else:
         return 'Hello' + name 
+
+@app.route('/write')
+def write():
+    f = open("demofile2.txt", "a")
+    f.write("Now the file has more content!")
+    f.close()
+    f = open("demofile2.txt", "r")
+    return 'file saved'
+
+@app.route('/read')
+def read():
+    f = open("demofile3.txt", "w")
+    return f.read()
