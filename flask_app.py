@@ -2,20 +2,13 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route('/')
-def form():
-    name = request.args.get ('name', '')
-    if name == '':
-        return render_template('form.html')
-    else:
-        return 'Hello' + name 
-
-@app.route('/write')
-def write():
+def msg():
+    msg = request.args.get ('msg', '')
     f = open("demofile2.txt", "a")
     f.write("Now the file has more content!")
     f.close()
     f = open("demofile2.txt", "r")
-    return 'file saved'
+    return render_template('msg.html')
 
 @app.route('/read')
 def read():
