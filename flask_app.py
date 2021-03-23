@@ -20,4 +20,4 @@ def write():
 @app.route('/read')
 def read():
     f = open("demofile3.txt", "w")
-    return f.read()
+    return render_template('msg.html')
