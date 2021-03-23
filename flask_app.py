@@ -6,5 +6,5 @@ def form():
     name = request.args.get ('name', ' ')
     if name == ' '
         return render_template('form.html')
-    else 
+    else:
         return ('Hello' + name )
